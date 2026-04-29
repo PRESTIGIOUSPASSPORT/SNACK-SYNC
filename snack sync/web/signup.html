@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snack Sync | User Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="landing-page" data-page="signup">
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <span class="brand__mark"></span>
+            <span>
+                <strong>Snack Sync</strong>
+                <small>User onboarding</small>
+            </span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="index.html">Back to Login</a>
+        </nav>
+    </header>
+
+    <main class="hero-layout hero-layout--signup">
+        <section class="hero-panel">
+            <span class="pill">User Sign Up Only</span>
+            <h1>Create your customer account with Gmail or email and password.</h1>
+            <p class="hero-copy">
+                This page is only for users. Admins stay on the shared login flow. After signup,
+                users can search food, book instantly, and prebook pickup for later.
+            </p>
+
+            <div class="signup-benefits">
+                <article class="benefit-card">
+                    <strong>Dish Search</strong>
+                    <p>Search food by restaurant or item name.</p>
+                </article>
+                <article class="benefit-card">
+                    <strong>Pickup Booking</strong>
+                    <p>Place quick bookings for available dishes.</p>
+                </article>
+                <article class="benefit-card">
+                    <strong>Scheduled Prebooking</strong>
+                    <p>Reserve a dish for a later slot with date and time.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="auth-card">
+            <div class="auth-card__header">
+                <span class="pill pill--soft">Simple Sign Up</span>
+                <h2>Create your account with email and password.</h2>
+                
+            </div>
+
+            <form id="signupForm" class="auth-form auth-form--stack">
+                <label class="field">
+                    <span>Full Name</span>
+                    <input id="signupName" type="text" placeholder="Karan Yadav" required>
+                </label>
+
+                <label class="field">
+                    <span>Gmail / Email Address</span>
+                    <input id="signupEmail" type="email" placeholder="karan@gmail.com" required>
+                </label>
+
+                <label class="field">
+                    <span>Phone Number</span>
+                    <input id="signupPhone" type="tel" placeholder="+91 98765 43210" required>
+                </label>
+
+                <div class="two-col">
+                    <label class="field">
+                        <span>Password</span>
+                        <input id="signupPassword" type="password" placeholder="Create password" required>
+                    </label>
+                    <label class="field">
+                        <span>Confirm Password</span>
+                        <input id="signupConfirmPassword" type="password" placeholder="Repeat password" required>
+                    </label>
+                </div>
+
+                <button type="submit" class="cta-button cta-button--block">Create User Account</button>
+            </form>
+
+            <div class="auth-card__footer">
+                <p>Already registered?</p>
+                <a href="index.html">Go to login</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+</body>
+</html>

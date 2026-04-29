@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snack Sync | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="dashboard-page dashboard-page--admin" data-page="admin">
+    <div class="dashboard-shell">
+        <aside class="dashboard-sidebar">
+            <a class="brand" href="admin.html">
+                <span class="brand__mark"></span>
+                <span>
+                    <strong>Snack Sync</strong>
+                    <small>Admin control room</small>
+                </span>
+            </a>
+
+            <div class="sidebar-copy">
+                <span class="pill pill--soft">Menu Operations</span>
+                <h1>Publish restaurant menus with a faster, cleaner workflow.</h1>
+                <p>Add restaurants, launch dishes, pause availability, and monitor bookings from one place.</p>
+            </div>
+
+            <div id="adminRestaurantDeck" class="sidebar-list"></div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div>
+                    <span class="section-kicker">Admin Dashboard</span>
+                    <h2 id="adminWelcome">Welcome back</h2>
+                </div>
+                <button id="logoutButton" type="button" class="ghost-button">Log Out</button>
+            </header>
+
+            <section class="metrics-row">
+                <article class="metric-card">
+                    <span>Restaurants</span>
+                    <strong id="statRestaurants">0</strong>
+                </article>
+                <article class="metric-card">
+                    <span>Menu Items</span>
+                    <strong id="statMenuItems">0</strong>
+                </article>
+                <article class="metric-card">
+                    <span>Bookings</span>
+                    <strong id="statBookings">0</strong>
+                </article>
+            </section>
+
+            <section class="admin-grid">
+                <article class="surface-card">
+                    <div class="surface-card__head">
+                        <span class="section-kicker">Restaurant Setup</span>
+                        <h3>Add a restaurant</h3>
+                    </div>
+
+                    <form id="restaurantForm" class="stack-form">
+                        <label class="field">
+                            <span>Restaurant Name</span>
+                            <input id="restaurantName" type="text" placeholder="Urban Spice Kitchen" required>
+                        </label>
+                        <div class="two-col">
+                            <label class="field">
+                                <span>Cuisine</span>
+                                <input id="restaurantCuisine" type="text" placeholder="North Indian" required>
+                            </label>
+                            <label class="field">
+                                <span>Address</span>
+                                <input id="restaurantAddress" type="text" placeholder="Sector 14, Noida" required>
+                            </label>
+                        </div>
+                        <button type="submit" class="cta-button">Add Restaurant</button>
+                    </form>
+                </article>
+
+                <article class="surface-card">
+                    <div class="surface-card__head">
+                        <span class="section-kicker">Menu Studio</span>
+                        <h3>Add a menu item</h3>
+                    </div>
+
+                    <form id="menuItemForm" class="stack-form">
+                        <label class="field">
+                            <span>Restaurant</span>
+                            <select id="menuRestaurantSelect" required></select>
+                        </label>
+                        <div class="two-col">
+                            <label class="field">
+                                <span>Dish Name</span>
+                                <input id="menuItemName" type="text" placeholder="Paneer Tikka Wrap" required>
+                            </label>
+                            <label class="field">
+                                <span>Category</span>
+                                <input id="menuItemCategory" type="text" placeholder="Wraps" required>
+                            </label>
+                        </div>
+                        <div class="two-col">
+                            <label class="field">
+                                <span>Price (INR)</span>
+                                <input id="menuItemPrice" type="number" min="0" step="1" placeholder="249" required>
+                            </label>
+                            <label class="field">
+                                <span>Prep Time (mins)</span>
+                                <input id="menuItemPrep" type="number" min="5" step="5" placeholder="20" required>
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span>Description</span>
+                            <textarea id="menuItemDescription" rows="4" placeholder="Describe the dish clearly." required></textarea>
+                        </label>
+                        <label class="check-row">
+                            <input id="menuItemAvailable" type="checkbox" checked>
+                            <span>Available for booking</span>
+                        </label>
+                        <button type="submit" class="cta-button">Publish Menu Item</button>
+                    </form>
+                </article>
+            </section>
+
+            <section class="content-grid">
+                <article class="surface-card">
+                    <div class="surface-card__head surface-card__head--spread">
+                        <div>
+                            <span class="section-kicker">Menu Library</span>
+                            <h3>Manage dishes</h3>
+                        </div>
+                        <div class="inline-tools">
+                            <input id="adminMenuSearch" type="search" placeholder="Search dishes">
+                            <select id="adminRestaurantFilter"></select>
+                        </div>
+                    </div>
+
+                    <div id="adminMenuList" class="stack-list"></div>
+                </article>
+
+                <article class="surface-card">
+                    <div class="surface-card__head">
+                        <span class="section-kicker">Booking Feed</span>
+                        <h3>Recent customer activity</h3>
+                    </div>
+
+                    <div id="adminBookingFeed" class="stack-list"></div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+</body>
+</html>

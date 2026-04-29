@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snack Sync | User Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="dashboard-page dashboard-page--user" data-page="user">
+    <header class="market-header">
+        <a class="brand" href="user.html">
+            <span class="brand__mark"></span>
+            <span>
+                <strong>Snack Sync</strong>
+                <small>Food booking marketplace</small>
+            </span>
+        </a>
+
+        <div class="market-header__actions">
+            <span class="market-header__location">Pickup near you</span>
+            <button id="logoutButton" type="button" class="ghost-button">Log Out</button>
+        </div>
+    </header>
+
+    <main class="market-shell">
+        <section class="market-hero">
+            <div class="market-hero__copy">
+                <span class="pill">Discover and reserve food faster</span>
+                <h1 id="userWelcome">What are you craving today?</h1>
+                <p>Search by dish or restaurant, book instantly, or prebook your pickup for the perfect time.</p>
+            </div>
+
+            <form id="searchForm" class="market-search">
+                <input id="foodSearchInput" type="search" placeholder="Search for biryani, wrap, coffee, dessert...">
+                <select id="restaurantFilterSelect"></select>
+                <button type="submit" class="cta-button">Search</button>
+            </form>
+        </section>
+
+        <section class="metrics-row metrics-row--user">
+            <article class="metric-card">
+                <span>Restaurants</span>
+                <strong id="userRestaurantCount">0</strong>
+            </article>
+            <article class="metric-card">
+                <span>Available Dishes</span>
+                <strong id="userMenuCount">0</strong>
+            </article>
+            <article class="metric-card">
+                <span>Upcoming Prebookings</span>
+                <strong id="userPrebookingCount">0</strong>
+            </article>
+        </section>
+
+        <section class="surface-card">
+            <div class="surface-card__head">
+                <span class="section-kicker">Food Categories</span>
+                <h3>Browse by what you feel like eating</h3>
+            </div>
+
+            <div id="categoryRail" class="category-rail"></div>
+        </section>
+
+        <section class="surface-card">
+            <div class="surface-card__head">
+                <span class="section-kicker">Popular Restaurants</span>
+                <h3>Restaurants available for booking</h3>
+            </div>
+
+            <div id="restaurantHighlights" class="restaurant-grid"></div>
+        </section>
+
+        <section class="content-grid">
+            <article class="surface-card">
+                <div class="surface-card__head">
+                    <span class="section-kicker">Search Results</span>
+                    <h3>Dishes you can book right now</h3>
+                </div>
+
+                <div id="foodResults" class="food-grid"></div>
+            </article>
+
+            <article class="surface-card">
+                <div class="surface-card__head">
+                    <span class="section-kicker">Upcoming</span>
+                    <h3>Your prebookings</h3>
+                </div>
+
+                <div id="upcomingOrders" class="stack-list"></div>
+            </article>
+        </section>
+
+        <section class="surface-card">
+            <div class="surface-card__head">
+                <span class="section-kicker">Recent Activity</span>
+                <h3>Your booking history</h3>
+            </div>
+
+            <div id="recentOrders" class="stack-list"></div>
+        </section>
+    </main>
+
+    <section id="bookingModal" class="modal" aria-hidden="true">
+        <div class="modal__backdrop" data-close-modal></div>
+        <div class="modal__card">
+            <button type="button" class="modal__close" data-close-modal aria-label="Close booking form">&times;</button>
+            <div class="modal__header">
+                <span id="bookingModeLabel" class="pill pill--soft">Book now</span>
+                <h3 id="bookingDishName">Selected Dish</h3>
+                <p id="bookingDishMeta"></p>
+            </div>
+
+            <form id="bookingForm" class="stack-form">
+                <input id="bookingItemId" type="hidden">
+                <input id="bookingType" type="hidden">
+
+                <label class="field">
+                    <span>Quantity</span>
+                    <input id="bookingQuantity" type="number" min="1" step="1" value="1" required>
+                </label>
+
+                <label id="scheduleField" class="field hidden">
+                    <span>Pickup Date & Time</span>
+                    <input id="bookingSchedule" type="datetime-local">
+                </label>
+
+                <label class="field">
+                    <span>Notes</span>
+                    <textarea id="bookingNotes" rows="4" placeholder="Optional note for pickup."></textarea>
+                </label>
+
+                <button id="bookingSubmitButton" type="submit" class="cta-button cta-button--block">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+</body>
+</html>

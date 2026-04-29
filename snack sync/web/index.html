@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snack Sync | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="landing-page" data-page="login">
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <span class="brand__mark"></span>
+            <span>
+                <strong>Snack Sync</strong>
+                <small>Fast booking. Smart prebooking.</small>
+            </span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="signup.html">User Sign Up</a>
+            <a href="user.html">Explore Food</a>
+        </nav>
+    </header>
+
+    <main class="hero-layout">
+        <section class="hero-panel">
+            <span class="pill">Built for food ordering teams</span>
+            <h1>Discover dishes fast, manage menus cleanly, and prebook pickup slots with confidence.</h1>
+            <p class="hero-copy">
+                Snack Sync brings a delivery-app feel to restaurant discovery while keeping admin controls focused.
+                Users search by restaurant or dish, place instant bookings, and reserve future pickup windows.
+            </p>
+
+            <div class="hero-search-preview">
+                <div class="hero-search-preview__field">
+                    <span>Search for biryani, wraps, coffee, desserts</span>
+                </div>
+                <button type="button" class="cta-button">Find Food</button>
+            </div>
+
+            <div class="hero-insights">
+                <article class="insight-card">
+                    <strong>Instant Booking</strong>
+                    <p>Reserve available items right away.</p>
+                </article>
+                <article class="insight-card">
+                    <strong>Prebooking Slots</strong>
+                    <p>Choose a pickup date and time in advance.</p>
+                </article>
+                <article class="insight-card">
+                    <strong>Admin Menu Desk</strong>
+                    <p>Add restaurants and publish menu items from one place.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="auth-card">
+            <div class="auth-card__header">
+                <span class="pill pill--soft">Unified Login</span>
+                <h2>One login page for both admin and user.</h2>
+                <p>Choose your role and continue.</p>
+            </div>
+
+            <div class="role-tabs" id="roleTabs">
+                <button type="button" class="role-tabs__button active" data-role-option="user">User Login</button>
+                <button type="button" class="role-tabs__button" data-role-option="admin">Admin Login</button>
+            </div>
+
+            <form id="loginForm" class="auth-form auth-form--stack">
+                <input id="loginRole" type="hidden" value="user">
+
+                <label class="field">
+                    <span>Email Address</span>
+                    <input id="loginEmail" type="email" placeholder="you@example.com" required>
+                </label>
+
+                <label class="field">
+                    <span>Password</span>
+                    <input id="loginPassword" type="password" placeholder="Enter your password" required>
+                </label>
+
+                <button type="submit" class="cta-button cta-button--block">Continue</button>
+            </form>
+
+            <div class="auth-card__footer">
+                <p id="roleHelpText">New customer? Create your user account first.</p>
+                <a href="signup.html">User sign up</a>
+            </div>
+
+            <div class="demo-card">
+                <span>Demo admin access</span>
+                <strong>admin@snacksync.com</strong>
+                <small>Password: admin123</small>
+            </div>
+        </section>
+    </main>
+
+    <section class="feature-ribbon">
+        <article>
+            <strong>Shared login</strong>
+            <p>Admin and user sign in from one clean page.</p>
+        </article>
+        <article>
+            <strong>User-only signup</strong>
+            <p>Customer onboarding stays separate and simple.</p>
+        </article>
+        <article>
+            <strong>Email OTP flow</strong>
+            <p>Ready for email verification from the signup flow.</p>
+        </article>
+    </section>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+</body>
+</html>
